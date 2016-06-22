@@ -1,0 +1,25 @@
+{% extends 'mytemplate.jinja2' %}
+{% block intro %}
+    {% if not login %}
+        <div id="intro">
+            <div class="inner">
+                <div class="wrap clearFix">
+                    <h1><strong>Уважаемый посетитель нашего сайта! </strong></h1>
+
+                    <h2>Мы очень рады что Вы зашли на наш сайт. Очень надеемся, что представленная здесь информация
+                        будет для Вас полезной!</h2>
+
+                    <a href="registration" class="button">Регистрация</a>
+                    <a href="login" class="button">Авторизация</a>
+
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}
+{% block content %}
+
+   {% include 'table.jinja2' %}
+{% endblock %}
+

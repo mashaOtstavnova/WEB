@@ -1,0 +1,35 @@
+{% extends 'mytemplate.jinja2' %}
+
+{% block content %}
+    {% if login %}
+    <div class='container'  >
+        <div class="align-left" >
+            <h1>Здравстуйте, {{ user.name }} </h1>
+        </div>
+        <div class="align-right">
+            <a href="advert" class="button" >Добавить объявления</a>
+        </div>
+    </div>
+    <div align="center" >
+        <table id="contact" >
+                <tr>
+                   <td ><p><b class="text">email:<td>{{  user.email }}</td></b>  <br></td>
+                </tr>
+                <tr>
+                   <td ><p><b class="text">Ваше имя: <td>{{ user.name }}</td></b><br></td>
+                </tr>
+                <tr>
+                   <td ><p><b class="text">Номер телефона:<td>{{ user.phone}}</td> </b><br></td>
+                </tr>
+                <tr>
+                   <td ><p><b class="text">Город:<td>{{ user.city.name}}</td> </b><br></td>
+                </tr>
+        </table>
+            </div>
+{% include 'table.jinja2' %}
+
+    {% endif %}
+{% endblock %}
+
+
+

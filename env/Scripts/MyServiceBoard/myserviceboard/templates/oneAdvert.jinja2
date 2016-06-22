@@ -1,0 +1,22 @@
+{% extends 'mytemplate.jinja2' %}
+{% block content %}
+    <div id = 'advert'>
+        {% if thisUser %}
+                    <Br><input type="submit" class="button" value= 'Удалить объявление'
+                               onclick="document.location.href ='/delete' + '/'+{{ history.id }}">
+                {% endif %}
+                <h1 >{{  advert.name }}</h1>
+                <h5 >Дата добавления {{ advert.date }}</h5>
+        <div id = "firstImg" >
+            <img  src= {{ history.patchImageAvatar }}
+                             height="400px" align="center" >
+        </div>
+        <div id="oneAdvert" >
+            <p><b class="textAdvert">{{ advert.text }}</b><br>
+            <p><b class="text" width="800px">Цена: {{ advert.cost}}</b><br>
+            <p><b class="text" width="800px">Город: {{ history.user.city.name}}</b><br>
+            <p><b class="text" width="800px">Телефон: {{ history.user.phone}}</b><br>
+            <p><b class="text" width="800px">E-mail: {{ history.user.email}}</b><br>
+        </div>
+    </div>
+{% endblock %}

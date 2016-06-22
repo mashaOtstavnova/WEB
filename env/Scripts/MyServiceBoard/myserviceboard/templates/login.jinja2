@@ -1,0 +1,28 @@
+{% extends 'mytemplate.jinja2' %}
+{% block content %}
+
+    <form method="post">
+        <h1>Пожалуйста, авторизуйтесь</h1>
+        <input type="hidden" size="40" name="next" value="{{ next }}">
+
+        <p><b class="text">Введите email:</b><br>
+            <input type="text" class="input" size="40" name="email">
+
+        <p>
+            <b class="text">Введите пароль:</b><br>
+            <input type="password" class="input" size="40" name="password">
+            <Br><input type="submit" class="button" value="Войти">
+        <h3>Вы еще не зарегистрированы?</h3>
+        </p>
+        <a href="registration" class="text">Зарегистрироваться</a>
+        <Br><a href="passremind" class="text">Забыли пароль?</a>
+
+        </p>
+
+        {% if failed_attempt %}
+            <script type="application/javascript">alert('ERROR!')</script>
+            <h2>Вы ввели не верный логин или пароль.</h2>
+        {% endif %}
+    </form>
+
+{% endblock %}

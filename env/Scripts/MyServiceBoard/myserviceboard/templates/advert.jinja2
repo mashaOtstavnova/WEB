@@ -1,0 +1,25 @@
+{% extends 'mytemplate.jinja2' %}
+{% block content %}
+    <form method="post" enctype="multipart/form-data" accept-charset="utf-8">
+        <h1>Заполните поля для объявления</h1>
+        <input type="hidden" size="40" name="next" value="{{ next }}">
+
+        <p><b class="text">Заголовок:</b><br>
+            <input type="text" class="input" size="40" name="name">
+
+        <p>
+            <b class="text">Текст:</b><br>
+            <textarea type="text" class="input"  cols=40 rows=6 name="text"></textarea>
+
+        <p>
+            <b class="text">Цена:</b><br>
+            <input type="text" class="input" size="40" name="cost">
+        <p>   <b class="text">Изображение:</b><br>
+
+        <p><input type="file" value="Select file" name="img" accept="image/*,text/html,text/css"></p>
+
+            <Br><input type="submit" class="button" value="Добавить">
+        </p>
+    </form>
+
+{% endblock %}

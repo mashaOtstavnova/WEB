@@ -1,0 +1,60 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.row').bind('click',function(){
+
+          var row = $(this);
+          options = {
+              type:"get",
+              data:{'history_id':$(this).attr('id')},
+              success:  document.location.href = '/oneAdvert' + '/'+$(this).attr('id'),
+              dataType:'json'
+          }
+          $.ajax(options);
+      });
+  });
+</script>
+    <div class='divSearch'  >
+     <form>
+            <p><input id = "inputSearch" type="search" name="q" placeholder="Поиск по объявления">
+            <input type="submit" class="button" value= 'Поиск'>
+     </form>
+    </div>
+
+    <div id="divBoard" ><form>
+        <select id="sort" class="select" name="s" >
+                <option>{{ msg }}</option>
+                <option value="1" > По цене (возрастание)</option>
+                <option value="2" > По цене (убывание)</option>
+                <option value="3" > По дате (сначала старые)</option>
+                <option value="4" > По дате (сначала новые)</option>
+                <input type="submit" class="button" value= 'Сортировка' >
+            </select>
+     </form>
+        <table id ="board" class="tablesorter">
+            <thead>
+            <tbody  >
+                 {% for i in history %}
+                    <tr id={{i.id}} class="row">
+                    <td id = "avatar" rowspan="5"  height="150px" width="150px" >
+                        <img  src={{ i.patchImageAvatar }}  max-height="105px"
+                              height="100%" width="100%"  position="relative" ></td>
+                        <th>{{ i.advert.name }}</th>
+
+                    <tr>
+                        <td>{{ i.user.name }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ i.advert.cost }} руб.</td>
+                    </tr>
+                    <tr>
+                        <td>{{ i.advert.date }}</td>
+                    </tr>
+                     <tr>
+                        <td>{{ i.user.city.name }}</td>
+                    </tr>
+                     </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+   </div>
